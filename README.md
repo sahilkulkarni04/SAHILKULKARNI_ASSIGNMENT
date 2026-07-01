@@ -1,36 +1,262 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🤖 AI Customer Support Agent
 
-## Getting Started
+An AI-powered customer support application built with **Next.js**, **TypeScript**, **Tailwind CSS**, and **Google Gemini AI**. The application helps process e-commerce refund requests by validating customer orders against a refund policy and generating professional AI responses.
 
-First, run the development server:
+---
+
+## 🚀 Features
+
+- ✅ Mock CRM database with 15 customer profiles
+- ✅ Customer selection from dropdown
+- ✅ Display customer order details
+- ✅ Refund validation using backend business logic
+- ✅ Refund policy stored separately
+- ✅ AI-generated customer responses using Gemini
+- ✅ Admin dashboard showing reasoning logs
+- ✅ Modern responsive UI
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+- Next.js 15 (App Router)
+- React
+- TypeScript
+- Tailwind CSS
+
+### Backend
+- Next.js API Routes
+- Node.js
+
+### AI
+- Google Gemini API
+
+### Database
+- Mock JSON Database (`customers.json`)
+
+---
+
+## 📁 Project Structure
+
+```
+app/
+│
+├── api/
+│   ├── chat/
+│   └── customers/
+│
+├── page.tsx
+│
+data/
+│
+├── customers.json
+├── refundPolicy.txt
+│
+lib/
+│
+├── gemini.ts
+├── prompt.ts
+│
+└── tools/
+    └── refundTool.ts
+```
+
+---
+
+## ⚙️ Workflow
+
+```
+User
+   │
+   ▼
+Select Customer
+   │
+   ▼
+Enter Refund Request
+   │
+   ▼
+POST /api/chat
+   │
+   ▼
+Find Customer
+   │
+   ▼
+Validate Refund Policy
+   │
+   ▼
+Load Refund Policy
+   │
+   ▼
+Generate AI Prompt
+   │
+   ▼
+Google Gemini API
+   │
+   ▼
+AI Response
+   │
+   ▼
+Display Chat + Admin Logs
+```
+
+---
+
+## 🧠 How It Works
+
+1. User selects a customer.
+2. Customer details are loaded from the mock CRM database.
+3. User enters a refund request.
+4. Backend validates:
+   - Customer exists
+   - Order delivered
+   - Already refunded or not
+   - Purchase within refund period
+5. Refund policy is loaded.
+6. A structured prompt is created.
+7. Prompt is sent to Google Gemini.
+8. Gemini generates a professional response.
+9. Chat response and reasoning logs are displayed.
+
+---
+
+## 📦 Installation
+
+Clone the repository
+
+```bash
+git clone https://github.com/sahilkulkarni04/SAHILKULKARNI_ASSIGNMENT.git
+```
+
+Move into the project
+
+```bash
+cd SAHILKULKARNI_ASSIGNMENT
+```
+
+Install dependencies
+
+```bash
+npm install
+```
+
+---
+
+## 🔑 Environment Variables
+
+Create a file named `.env.local`
+
+```env
+GEMINI_API_KEY=YOUR_GEMINI_API_KEY
+```
+
+---
+
+## ▶️ Run the Project
+
+Start the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🧪 Demo Scenarios
 
-To learn more about Next.js, take a look at the following resources:
+### ✅ Approved Refund
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Customer:
+```
+John Doe
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Message:
+```
+I want a refund because the product is defective.
+```
 
-## Deploy on Vercel
+Expected Result
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Refund Approved
+- AI generates professional approval response
+- Admin dashboard shows validation logs
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+### ❌ Denied Refund
+
+Customer:
+```
+Jane Smith
+```
+
+Message:
+```
+I would like a refund.
+```
+
+Expected Result
+
+- Refund Denied
+- Purchase exceeds refund period
+- AI explains denial politely
+
+---
+
+## 📌 Business Rules
+
+- Customer must exist
+- Order must be delivered
+- Refund should not already be processed
+- Purchase must be within 30 days
+- Backend tool is the source of truth for refund decisions
+
+---
+
+## 🔍 Reasoning Logs
+
+The Admin Dashboard displays:
+
+- Customer Found
+- Order Found
+- Refund Validation
+- Refund Policy Loaded
+- Prompt Sent to Gemini
+- AI Response Generated
+
+---
+
+## 📈 Future Improvements
+
+- Voice support using OpenAI Realtime API or LiveKit
+- Real database integration (MongoDB/PostgreSQL)
+- User authentication
+- Intent detection before refund processing
+- Conversation history
+- Email notifications
+- Multi-language support
+
+---
+
+## 👨‍💻 Author
+
+**Sahil Kulkarni**
+
+GitHub:
+https://github.com/sahilkulkarni04
+
+LinkedIn:
+https://www.linkedin.com/in/sahilkulkarni04/
+
+---
+
+## 📄 License
+
+This project was developed as part of the **Next.js Developer Assignment** for **Jobform Automator**.
