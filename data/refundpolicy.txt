@@ -1,0 +1,15 @@
+E-Commerce Refund Policy
+
+1. Customers can request a refund only within 30 days of the purchase date.
+
+2. The order status must be "Delivered".
+
+3. Digital products are not eligible for refunds.
+
+4. A refund cannot be processed if the order has already been refunded.
+
+5. The customer must provide a valid reason for requesting a refund.
+
+6. If all the above conditions are satisfied, approve the refund.
+
+7. Otherwise, politely deny the refund and explain the reason.
